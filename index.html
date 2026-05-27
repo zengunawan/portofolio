@@ -1,0 +1,464 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Portfolio Pribadi</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: 'Poppins', sans-serif;
+    }
+
+    body {
+      background: #0f172a;
+      color: white;
+      line-height: 1.6;
+    }
+
+    header {
+      position: fixed;
+      width: 100%;
+      top: 0;
+      left: 0;
+      background: rgba(15, 23, 42, 0.95);
+      backdrop-filter: blur(10px);
+      padding: 15px 8%;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      z-index: 1000;
+      border-bottom: 1px solid rgba(255,255,255,0.1);
+    }
+
+    .logo {
+      font-size: 24px;
+      font-weight: 700;
+      color: #38bdf8;
+    }
+
+    nav a {
+      color: white;
+      text-decoration: none;
+      margin-left: 20px;
+      transition: 0.3s;
+      font-weight: 500;
+    }
+
+    nav a:hover {
+      color: #38bdf8;
+    }
+
+    section {
+      min-height: 100vh;
+      padding: 120px 8% 80px;
+    }
+
+    .hero {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 40px;
+    }
+
+    .hero-text {
+      flex: 1;
+      min-width: 280px;
+    }
+
+    .hero-text h1 {
+      font-size: 52px;
+      margin-bottom: 10px;
+    }
+
+    .hero-text h1 span {
+      color: #38bdf8;
+    }
+
+    .hero-text h2 {
+      font-size: 28px;
+      color: #cbd5e1;
+      margin-bottom: 20px;
+    }
+
+    .hero-text p {
+      color: #94a3b8;
+      margin-bottom: 25px;
+      max-width: 600px;
+    }
+
+    .btn {
+      display: inline-block;
+      padding: 12px 25px;
+      background: #38bdf8;
+      color: #0f172a;
+      border-radius: 10px;
+      text-decoration: none;
+      font-weight: 600;
+      transition: 0.3s;
+    }
+
+    .btn:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 8px 20px rgba(56, 189, 248, 0.4);
+    }
+
+    .hero-image {
+      flex: 1;
+      text-align: center;
+      min-width: 250px;
+    }
+
+    .hero-image img {
+      width: 320px;
+      max-width: 100%;
+      border-radius: 50%;
+      border: 5px solid #38bdf8;
+      box-shadow: 0 0 25px rgba(56, 189, 248, 0.4);
+    }
+
+    .section-title {
+      text-align: center;
+      margin-bottom: 50px;
+      font-size: 38px;
+      color: #38bdf8;
+    }
+
+    .about {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 30px;
+      align-items: center;
+    }
+
+    .card {
+      background: #1e293b;
+      padding: 30px;
+      border-radius: 20px;
+      transition: 0.3s;
+      border: 1px solid rgba(255,255,255,0.05);
+    }
+
+    .card:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 10px 25px rgba(0,0,0,0.3);
+    }
+
+    .skills {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+      gap: 20px;
+    }
+
+    .skill-box {
+      background: #1e293b;
+      padding: 25px;
+      border-radius: 15px;
+      text-align: center;
+      font-weight: 600;
+      transition: 0.3s;
+    }
+
+    .skill-box:hover {
+      background: #38bdf8;
+      color: #0f172a;
+      transform: scale(1.05);
+    }
+
+    .projects {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 25px;
+    }
+
+    .project-card img {
+      width: 100%;
+      border-radius: 15px;
+      margin-bottom: 15px;
+    }
+
+    .project-card h3 {
+      margin-bottom: 10px;
+      color: #38bdf8;
+    }
+
+    .project-card p {
+      color: #cbd5e1;
+      margin-bottom: 15px;
+    }
+
+    .certificate-section {
+      position: relative;
+      overflow: hidden;
+      background: linear-gradient(135deg,#0b1120,#111827);
+    }
+
+    .certificate-bg-text {
+      position: absolute;
+      left: -30px;
+      bottom: 80px;
+      font-size: 220px;
+      font-weight: 700;
+      color: rgba(255,255,255,0.05);
+      line-height: 0.8;
+      pointer-events: none;
+      font-family: Georgia, serif;
+    }
+
+    .certificate-top-text {
+      font-size: 18px;
+      color: #f5e7d5;
+      margin-bottom: 20px;
+      max-width: 600px;
+      line-height: 1.8;
+      font-family: Georgia, serif;
+      z-index: 2;
+      position: relative;
+    }
+
+    .certificate-slider {
+      position: relative;
+      overflow: hidden;
+      margin-top: 60px;
+      z-index: 2;
+    }
+
+    .certificate-track {
+      display: flex;
+      gap: 30px;
+      overflow-x: auto;
+      scroll-behavior: smooth;
+      scrollbar-width: none;
+      padding-bottom: 20px;
+    }
+
+    .certificate-track::-webkit-scrollbar {
+      display: none;
+    }
+
+    .certificate-card {
+      min-width: 260px;
+      background: transparent;
+      border-radius: 20px;
+      flex-shrink: 0;
+      transition: 0.4s;
+      position: relative;
+    }
+
+    .certificate-card:hover {
+      transform: translateY(-12px) rotate(-2deg);
+    }
+
+    .certificate-card img {
+      width: 100%;
+      height: 340px;
+      object-fit: cover;
+      border-radius: 18px;
+      box-shadow: 0 10px 30px rgba(0,0,0,0.35);
+      border: 4px solid rgba(255,255,255,0.08);
+    }
+
+    .certificate-info {
+      margin-top: 15px;
+    }
+
+    .certificate-card h3 {
+      color: white;
+      font-size: 20px;
+      margin-bottom: 8px;
+    }
+
+    .certificate-card p {
+      color: #cbd5e1;
+      font-size: 14px;
+      margin-bottom: 10px;
+    }
+
+    .date {
+      display: inline-block;
+      padding: 8px 15px;
+      border-radius: 50px;
+      background: rgba(255,255,255,0.08);
+      font-size: 12px;
+      color: #e2e8f0;
+    }
+
+    .slider-buttons {
+      display: flex;
+      justify-content: center;
+      gap: 18px;
+      margin-top: 40px;
+    }
+
+    .slider-buttons button {
+      width: 60px;
+      height: 60px;
+      border: none;
+      border-radius: 50%;
+      background: rgba(255,255,255,0.08);
+      color: white;
+      font-size: 22px;
+      cursor: pointer;
+      transition: 0.3s;
+      backdrop-filter: blur(8px);
+    }
+
+    .slider-buttons button:hover {
+      background: #38bdf8;
+      color: #0f172a;
+      transform: scale(1.1);
+    }
+
+    .contact {
+      text-align: center;
+    }
+
+    .contact a {
+      color: #38bdf8;
+      text-decoration: none;
+      font-weight: 600;
+    }
+
+    footer {
+      text-align: center;
+      padding: 20px;
+      border-top: 1px solid rgba(255,255,255,0.1);
+      color: #94a3b8;
+    }
+
+    @media (max-width: 768px) {
+      .hero-text h1 {
+        font-size: 40px;
+      }
+
+      nav {
+        display: none;
+      }
+
+      section {
+        padding: 100px 6% 70px;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <header>
+    <div class="logo">MyPortfolio</div>
+    <nav>
+      <a href="#home">Home</a>
+      <a href="#about">About</a>
+      <a href="#skills">Skills</a>
+      <a href="#projects">Projects</a>
+      <a href="#certificates">Certificates</a>
+      <a href="#contact">Contact</a>
+    </nav>
+  </header>
+
+  <section id="home" class="hero">
+    <div class="hero-text">
+      <h1>Halo, Saya <span>Nama Kamu</span></h1>
+      <h2>Web Developer & Mahasiswa</h2>
+      <p>
+        Selamat datang di website portofolio pribadi saya. Saya suka membuat website,
+        belajar teknologi baru, dan mengembangkan project kreatif.
+      </p>
+
+      <a href="https://github.com/usernamekamu" target="_blank" class="btn">
+        Kunjungi GitHub
+      </a>
+
+      <!-- CERTIFICATE SLIDER DI SAMPING PROFIL -->
+      <div class="certificate-slider">
+
+        <h2 class="section-title" style="text-align:left; margin-top:50px; margin-bottom:25px;">
+          Certificates
+        </h2>
+
+        <div class="certificate-track" id="certificateTrack">
+
+          <div class="certificate-card">
+            <img src="https://images.unsplash.com/photo-1522202176988-66273c2fd55f?q=80&w=1200&auto=format&fit=crop" alt="Certificate">
+            <div class="certificate-info">
+              <h3>Certified HTML Developer</h3>
+              <p>W3Schools Certification</p>
+              <span class="date">June 6, 2023</span>
+            </div>
+          </div>
+
+          <div class="certificate-card">
+            <img src="https://images.unsplash.com/photo-1516321318423-f06f85e504b3?q=80&w=1200&auto=format&fit=crop" alt="Certificate">
+            <div class="certificate-info">
+              <h3>CSS Masterclass</h3>
+              <p>Frontend Development</p>
+              <span class="date">July 12, 2023</span>
+            </div>
+          </div>
+
+          <div class="certificate-card">
+            <img src="https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?q=80&w=1200&auto=format&fit=crop" alt="Certificate">
+            <div class="certificate-info">
+              <h3>UI/UX Designer</h3>
+              <p>Coursera Certification</p>
+              <span class="date">March 10, 2023</span>
+            </div>
+          </div>
+
+        </div>
+
+        <div class="slider-buttons">
+          <button onclick="slideLeft()">❮</button>
+          <button onclick="slideRight()">❯</button>
+        </div>
+
+      </div>
+    </div>
+
+    <div class="hero-image">
+      <img src="https://i.imgur.com/4Z7Dz7B.png" alt="Profile">
+    </div>
+  </section>
+
+  <section id="contact" class="contact">
+    <h2 class="section-title">Contact</h2>
+
+    <div class="card">
+      <p>Email: emailkamu@gmail.com</p>
+      <p>Instagram: @usernamekamu</p>
+      <p>GitHub: <a href="https://github.com/usernamekamu" target="_blank">github.com/usernamekamu</a></p>
+    </div>
+  </section>
+
+  <footer>
+    <p>© 2026 Portfolio Pribadi | Dibuat dengan HTML & CSS</p>
+  </footer>
+
+  <script>
+
+    const certificateTrack = document.getElementById('certificateTrack');
+
+    function slideRight() {
+      certificateTrack.scrollBy({
+        left: 350,
+        behavior: 'smooth'
+      });
+    }
+
+    function slideLeft() {
+      certificateTrack.scrollBy({
+        left: -350,
+        behavior: 'smooth'
+      });
+    }
+
+  </script>
+
+</body>
+</html>
